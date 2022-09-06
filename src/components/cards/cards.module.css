@@ -1,0 +1,23 @@
+
+.card {
+    height: 170px;
+    width: 130px;
+    border-radius: 10px 10px 10px 10px;
+    border-color: black; 
+    border-width: thin;
+    margin-inline-end: auto;
+}
+
+.back {
+    background-color: blue;
+}
+
+.front {
+    background-color: #fff;
+    color:black;
+    font-size: 14px;
+}
+
+.deck {
+    margin-left: 20px;
+}
