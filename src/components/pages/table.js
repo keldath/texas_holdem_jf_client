@@ -4,6 +4,7 @@ import axios from "axios";
 import { Drawcommu , DrawPlayer} from '../cards/drawcards'
 import { useCardsUpdateContext } from '../hoc/context'
 
+import Button from '@mui/material/Button';
 import styles from '../../App.module.css';
 import cont_styles from './table.module.css';
 import cards_styles from '../cards/cards.module.css'
@@ -47,16 +48,17 @@ function Table(props) {
                                          ${cards_styles.deck}`}>Deck</div> 
                     <Drawcommu/>
                 </div>
-                 <button className={cont_styles.btncomm} onClick={handleCommunity}>Deal Community</button>
+                 <button className={`${cont_styles.btncomm} ${cont_styles.btncomm}`} variant="contained"
+                    onClick={handleCommunity}>Deal Community</button>
             </div>
             <div className={`${cont_styles._container} ${cont_styles.mid}`}>
                 <div className={`${cont_styles.card_container} ${cont_styles.pocket}`}>
                     <DrawPlayer/>
                 </div>
-                <button className={cont_styles.btncomm} onClick={handlePlayer}>Deal Pocket</button>
+                <button className={cont_styles.btnplayer} onClick={handlePlayer}>Deal Pocket</button>
             </div>
             <div className={`${cont_styles._container} ${cont_styles.bot}`}>
-                <button className={cont_styles.btncomm} onClick={handleBestHand}>Check best hand</button>
+                <button className={cont_styles.btnbest} onClick={handleBestHand}>Check best hand</button>
             </div>
         </div>
     )

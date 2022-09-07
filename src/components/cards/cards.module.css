@@ -7,7 +7,12 @@
     border-width: medium;
 	border-style: outset;
     margin-inline-end: auto;
+    align-items: center;
+    justify-content: center;
+    display: flex;
 }
+
+.card::after{content:"\2665";color:red;}
 
 .back {
     background-color: blue;
@@ -22,3 +27,13 @@
 .deck {
     margin-left: 20px;
 }
+/* 
+card::before{content:attr(data-rank)}
+.spades::after{content:"\2660"}
+.hearts::after{content:"\2665";color:red}
+.diamonds::after{content:"\2666";color:red}
+.clubs::after{content:"\2663"}
+<span data-rank="7" class="card spades"></span>
+<span data-rank="7" class="card clubs"></span>
+<span data-rank="6" class="card diamonds"></span>
+<span data-rank="K" class="card hearts"></span> */

@@ -14,7 +14,7 @@ function cardGen(cards, Winning_hand) {
                 cards_sty += ' ' + win_card.borderwin
             }
         }
-        return  <div key={item} className={cards_sty}>{item}</div> 
+        return  <div key={item} className={cards_sty}>{item}&diams;</div> 
      } )
 }
 
