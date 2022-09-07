@@ -4,7 +4,8 @@
     width: 130px;
     border-radius: 10px 10px 10px 10px;
     border-color: black; 
-    border-width: thin;
+    border-width: medium;
+	border-style: outset;
     margin-inline-end: auto;
 }
 

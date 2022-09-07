@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import axios from "axios";
 
 import { Drawcommu , DrawPlayer} from '../cards/drawcards'
-import { useCardsUpdateContext, useCardsContext } from '../hoc/context'
+import { useCardsUpdateContext } from '../hoc/context'
 
 import styles from '../../App.module.css';
 import cont_styles from './table.module.css';
@@ -10,30 +10,32 @@ import cards_styles from '../cards/cards.module.css'
 
 function Table(props) {
 
-    const cards = useCardsContext()
+    // const cards = useCardsContext()
     const updateCards = useCardsUpdateContext()
-    const [togglePlayer, setTogglePlayer] = useState(true)
+    const [toggleButtons, setToggleeButtons] = useState({c: false, p: false})
 
     const handleCommunity = async () => {
-        await axios('http://localhost:8080/create_deck'); // no need to save the response of this one
-        let { data } = await axios('http://localhost:8080/deal_community');
-        updateCards(data)
-        setTogglePlayer(!togglePlayer) 
+        if (!toggleButtons.c) {
+            await axios('http://localhost:8080/create_deck'); // no need to save the response of this one
+            let { data } = await axios('http://localhost:8080/deal_community');
+            updateCards(data)
+            setToggleeButtons({c: true, p: false}) 
+        }
     }
 
     const handlePlayer = async () => {
-        if (!togglePlayer) {
+        if (toggleButtons.c) {
             let { data } =  await axios('http://localhost:8080/deal_player');
             updateCards(data) 
-            setTogglePlayer(!togglePlayer)
+            setToggleeButtons({c: false, p: true}) 
         }
     }
 
     const handleBestHand = async () => {
-        if (!togglePlayer) {
+        if (toggleButtons.p) {
             let { data } =  await axios('http://localhost:8080/best_hand');
             updateCards(data)
-            console.log(cards)
+            setToggleeButtons({c: false, p: false}) 
         }
     }
 
@@ -42,7 +44,7 @@ function Table(props) {
             <div className={`${cont_styles._container} ${cont_styles.top}`}>
                 <div className={cont_styles.card_container}>
                     <div className={`${cards_styles.card} ${cards_styles.back}
-                                         ${cards_styles.deck}`}> Deck</div> 
+                                         ${cards_styles.deck}`}>Deck</div> 
                     <Drawcommu/>
                 </div>
                  <button className={cont_styles.btncomm} onClick={handleCommunity}>Deal Community</button>

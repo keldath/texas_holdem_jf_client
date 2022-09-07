@@ -1,0 +1,12 @@
+
+.borderwin {
+		
+				/* background-color: #399953; */
+				background-repeat: no-repeat;
+				background-size: 50% 50%, 50% 50%;
+				border-width: medium;
+				border-style: outset;
+				border-color: yellow;
+				/* animation: rotate 4s linear infinite; */
+			}
+		
