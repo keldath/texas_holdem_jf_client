@@ -2,20 +2,29 @@ import React from 'react'
 
 import { useCardsContext } from '../hoc/context'
 
+import Card from 'react-free-playing-cards/lib/TcN'
 import cards_styles from './cards.module.css'
 import win_card from './wincard.module.css'
 
 function cardGen(cards, Winning_hand) {
-    let cards_sty = ''
     return cards.map((item, idx)=> {
-        cards_sty = `${cards_styles.card} ${cards_styles.front }`
-        if (Winning_hand !== '' ) {
-            if (Winning_hand.toString().split(',').includes(item)) {
-                cards_sty += ' ' + win_card.borderwin
-            }
+       
+        let winHand = win_card.notwinning
+        if (Winning_hand !== undefined && Winning_hand !== '') {
+            console.log(Winning_hand)
+            console.log(Winning_hand[0].includes(item))
+            
+            if (Winning_hand[0].includes(item)) {
+                winHand = win_card.borderwin
+                console.log(winHand)
         }
-        return  <div key={item} className={cards_sty}>{item}&diams;</div> 
-     } )
+        }
+       
+        return(<div key={item} className={winHand}>
+                <Card card={item} deckType='basic' height="15vh" front />
+               </div>
+        )
+     })
 }
 
 
@@ -36,9 +45,9 @@ export function Drawcommu(props) {
     }
 
     return (
-        <>
+        <div className={cards_styles.flop}>
             {drawCards()}
-        </>
+       </div>
     )
 }
 export function DrawPlayer(props) {

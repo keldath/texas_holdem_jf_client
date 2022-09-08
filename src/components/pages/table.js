@@ -4,10 +4,11 @@ import axios from "axios";
 import { Drawcommu , DrawPlayer} from '../cards/drawcards'
 import { useCardsUpdateContext } from '../hoc/context'
 
-import Button from '@mui/material/Button';
+import Card from 'react-free-playing-cards/lib/TcN'
+import Fab from '@mui/material/Fab';
 import styles from '../../App.module.css';
 import cont_styles from './table.module.css';
-import cards_styles from '../cards/cards.module.css'
+import win_card from '../cards/wincard.module.css'
 
 function Table(props) {
 
@@ -20,20 +21,20 @@ function Table(props) {
             await axios('http://localhost:8080/create_deck'); // no need to save the response of this one
             let { data } = await axios('http://localhost:8080/deal_community');
             updateCards(data)
-            setToggleeButtons({c: true, p: false}) 
+            setToggleeButtons({...toggleButtons, c: true, p: true}) 
         }
     }
 
     const handlePlayer = async () => {
-        if (toggleButtons.c) {
+        if (toggleButtons.p) {
             let { data } =  await axios('http://localhost:8080/deal_player');
             updateCards(data) 
-            setToggleeButtons({c: false, p: true}) 
+            setToggleeButtons({...toggleButtons, p: false}) 
         }
     }
 
     const handleBestHand = async () => {
-        if (toggleButtons.p) {
+        if (!toggleButtons.p) {
             let { data } =  await axios('http://localhost:8080/best_hand');
             updateCards(data)
             setToggleeButtons({c: false, p: false}) 
@@ -44,8 +45,9 @@ function Table(props) {
         <div className={styles.App}>
             <div className={`${cont_styles._container} ${cont_styles.top}`}>
                 <div className={cont_styles.card_container}>
-                    <div className={`${cards_styles.card} ${cards_styles.back}
-                                         ${cards_styles.deck}`}>Deck</div> 
+                    <div className={win_card.notwinning} >
+                        <Card card={'As'} deckType='basic' height="15vh" back className={'koko'} />
+                    </div>
                     <Drawcommu/>
                 </div>
                  <button className={`${cont_styles.btncomm} ${cont_styles.btncomm}`} variant="contained"
@@ -58,7 +60,14 @@ function Table(props) {
                 <button className={cont_styles.btnplayer} onClick={handlePlayer}>Deal Pocket</button>
             </div>
             <div className={`${cont_styles._container} ${cont_styles.bot}`}>
-                <button className={cont_styles.btnbest} onClick={handleBestHand}>Check best hand</button>
+                <Fab variant="extended" onClick={handleBestHand}>
+                         <span className={cont_styles.cardicons_b}>&spades;</span>
+                         <span className={cont_styles.cardicons_r}>&diams;</span>
+                         <span className={cont_styles.btnbot}>-Check the best hand-</span> 
+                         <span className={cont_styles.cardicons_b}>&clubs;</span>
+                         <span className={cont_styles.cardicons_r}>&hearts;</span>
+                </Fab>
+                {/* <button className={cont_styles.btnbest} onClick={handleBestHand}>Check best hand</button> */}
             </div>
         </div>
     )

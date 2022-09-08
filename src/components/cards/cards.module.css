@@ -1,12 +1,5 @@
 
 .card {
-    height: 170px;
-    width: 130px;
-    border-radius: 10px 10px 10px 10px;
-    border-color: black; 
-    border-width: medium;
-	border-style: outset;
-    margin-inline-end: auto;
     align-items: center;
     justify-content: center;
     display: flex;
@@ -14,8 +7,9 @@
 
 .card::after{content:"\2665";color:red;}
 
-.back {
-    background-color: blue;
+
+.deck {
+    margin-right: 5%;
 }
 
 .front {
@@ -24,8 +18,11 @@
     font-size: 14px;
 }
 
-.deck {
-    margin-left: 20px;
+.flop {
+    margin-left: 3%;
+    flex-wrap: wrap;
+    display: flex
+
 }
 /* 
 card::before{content:attr(data-rank)}
