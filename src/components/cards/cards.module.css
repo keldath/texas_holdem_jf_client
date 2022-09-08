@@ -7,23 +7,40 @@
 
 .card::after{content:"\2665";color:red;}
 
-
-.deck {
-    margin-right: 5%;
-}
-
 .front {
     background-color: #fff;
     color:black;
     font-size: 14px;
 }
 
-.flop {
-    margin-left: 3%;
-    flex-wrap: wrap;
-    display: flex
-
+.drawContainer {
+    /* margin: 3%; */
+    display: flex;
+    border-radius: 5px;
+    border-color: rgb(7, 7, 7);
+    border-width: medium;
+    border-style: groove;
+    overflow-x: auto;
+    padding: 8px;
+    overflow-y: hidden;
 }
+
+.flopBox {
+    min-width: 96%;
+    width: 50vw;
+    height: 22vh;
+    justify-content: center;
+}
+
+.pocketBox {
+    min-width: 90%;
+    height: 21vh;
+    width: 30vw;
+    margin-bottom: 5px;
+    justify-content: center;
+}
+
+
 /* 
 card::before{content:attr(data-rank)}
 .spades::after{content:"\2660"}

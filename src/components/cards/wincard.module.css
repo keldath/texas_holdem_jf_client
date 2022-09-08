@@ -2,7 +2,7 @@
 .borderwin {
 	margin: 1px;
 	padding: 0;
-	height: 15vh;
+	height: 20vh;
 	border-width: medium;
 	border-style: outset;
 	border-color: yellow;
@@ -13,7 +13,7 @@ aligned with an added border of a winning card */
 .notwinning {
 	margin: 1px;
 	padding: 0;
-	height: 15vh;
+	height: 20vh;
 	border-width: medium;
 	border-style: outset;
 	border-color: rgba(0, 0, 0, .05);

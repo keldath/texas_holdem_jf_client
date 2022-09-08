@@ -4,17 +4,15 @@ import axios from "axios";
 import { Drawcommu , DrawPlayer} from '../cards/drawcards'
 import { useCardsUpdateContext } from '../hoc/context'
 
-import Card from 'react-free-playing-cards/lib/TcN'
 import Fab from '@mui/material/Fab';
 import styles from '../../App.module.css';
 import cont_styles from './table.module.css';
-import win_card from '../cards/wincard.module.css'
 
 function Table(props) {
 
     // const cards = useCardsContext()
     const updateCards = useCardsUpdateContext()
-    const [toggleButtons, setToggleeButtons] = useState({c: false, p: false})
+    const [toggleButtons, setToggleeButtons] = useState({c: false, p: false, b: false})
 
     const handleCommunity = async () => {
         if (!toggleButtons.c) {
@@ -29,15 +27,15 @@ function Table(props) {
         if (toggleButtons.p) {
             let { data } =  await axios('http://localhost:8080/deal_player');
             updateCards(data) 
-            setToggleeButtons({...toggleButtons, p: false}) 
+            setToggleeButtons({...toggleButtons, p: false, b: true}) 
         }
     }
 
     const handleBestHand = async () => {
-        if (!toggleButtons.p) {
+        if (toggleButtons.b) {
             let { data } =  await axios('http://localhost:8080/best_hand');
             updateCards(data)
-            setToggleeButtons({c: false, p: false}) 
+            setToggleeButtons({c: false, p: false, b: false}) 
         }
     }
 
@@ -45,14 +43,11 @@ function Table(props) {
         <div className={styles.App}>
             <div className={`${cont_styles._container} ${cont_styles.top}`}>
                 <div className={cont_styles.card_container}>
-                    <div className={win_card.notwinning} >
-                        <Card card={'As'} deckType='basic' height="15vh" back className={'koko'} />
-                    </div>
                     <Drawcommu/>
                 </div>
-                 <button className={`${cont_styles.btncomm} ${cont_styles.btncomm}`} variant="contained"
-                    onClick={handleCommunity}>Deal Community</button>
-            </div>
+                <button className={`${cont_styles.btncomm} ${cont_styles.deck_txt}`} variant="contained"
+                                onClick={handleCommunity}>Deal Community</button>  
+             </div>
             <div className={`${cont_styles._container} ${cont_styles.mid}`}>
                 <div className={`${cont_styles.card_container} ${cont_styles.pocket}`}>
                     <DrawPlayer/>
@@ -67,8 +62,7 @@ function Table(props) {
                          <span className={cont_styles.cardicons_b}>&clubs;</span>
                          <span className={cont_styles.cardicons_r}>&hearts;</span>
                 </Fab>
-                {/* <button className={cont_styles.btnbest} onClick={handleBestHand}>Check best hand</button> */}
-            </div>
+             </div>
         </div>
     )
 }
