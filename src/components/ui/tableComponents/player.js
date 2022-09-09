@@ -13,14 +13,15 @@ export default function Player(props) {
     const updateCards = props.updateCards
 
     const handlePlayer = async () => {
-        let { data } =  await axios('http://localhost:8080/deal_player');
+        let { data } =  await axios('http://localhost:8080/deal_player', {params:{pa:1}});
         updateCards(data) 
-        setToggleeButtons({...toggleButtons, p: !toggleButtons.p, b: !toggleButtons.b}) 
+        setToggleeButtons({...toggleButtons, playerToggle: !toggleButtons.playerToggle, 
+            bestHandToggle: !toggleButtons.bestHandToggle}) 
     }
 
     useEffect(() => {
         console.log('rendering Player\'s Hand')
-    }, [props.toggleButtons.c, props.toggleButtons.c]);
+    }, [props.toggleButtons.communityToggle]);
 
     return (
         <>
@@ -28,7 +29,7 @@ export default function Player(props) {
                 <div className={`${styles.card_container} ${styles.pocket}`}>
                     <CardMaker cardCount={2}/>
                 </div>
-                <button className={styles.btnplayer} onClick={handlePlayer} disabled={toggleButtons.p}>Deal Pocket</button>
+                <button className={styles.player_button} onClick={handlePlayer} disabled={toggleButtons.playerToggle}>Deal Pocket</button>
             </div>
         </>
     )

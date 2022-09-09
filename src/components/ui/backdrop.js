@@ -2,21 +2,19 @@ import React from 'react'
 import styles from '../../css/backdrop.module.css'
 
 export default function BackDrop(props) {
-
-    console.log(props)
-    let backdtop = null
+    console.log('aaa')
+    let handSummary = ''
     let winHands = ''
     if (props?.winning_hand !== undefined ) {
         winHands = props.winning_hand
-        console.log(winHands)
         if (winHands[0].length > 0) {
-            backdtop = <span className={styles.backdrop}>The Best Hand is: {winHands[1]}</span>
+            handSummary = `The Best Hand is: ${winHands[1]}`
         }
     }
 
     return (
         <>
-            {backdtop}
+            <span className={styles.backdrop}>{handSummary}</span>
         </>
     )
 }

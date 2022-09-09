@@ -15,21 +15,22 @@ export default function Community(props) {
     const handleCommunity = async () => {
         let { data } = await axios('http://localhost:8080/deal_community');
         updateCards(data)
-        setToggleeButtons({...toggleButtons, c: !toggleButtons.c, p: !toggleButtons.p}) 
+        setToggleeButtons({...toggleButtons, 
+                            communityToggle: !toggleButtons.communityToggle, 
+                            playerToggle: !toggleButtons.playerToggle}) 
     }
-
+   
     useEffect(() => {
         console.log('rendering community cards')
-    }, [props.toggleButtons.b]);
+    }, [props.toggleButtons.bestHandToggle]);
 
     return (
         <>
-          <div className={`${styles._container} ${styles.top_container}`}>
+          <div className={`${styles._container} ${styles.top}`}>
                 <div className={styles.card_container}>
                     <CardMaker cardCount={5} />
                 </div>
-                {/* change names! */}
-                <button className={`${styles.btncomm} ${styles.deck_txt}`} disabled={toggleButtons.c}
+                <button className={`${styles.community_button}`} disabled={toggleButtons.communityToggle}
                                 onClick={handleCommunity}>Deal Community</button>  
              </div>  
         </>

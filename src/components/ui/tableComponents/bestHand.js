@@ -14,12 +14,13 @@ export default function BestHand(props) {
     const handleBestHand = async () => {
         let { data } =  await axios('http://localhost:8080/best_hand');
         updateCards(data)
-        setToggleeButtons({...toggleButtons, c: !toggleButtons.c, b: !toggleButtons.b})
+        setToggleeButtons({...toggleButtons, communityToggle: !toggleButtons.communityToggle, 
+          bestHandToggle: !toggleButtons.bestHandToggle})
     }
-
+    
     useEffect(() => {
       console.log('rendering best Hand')
-    }, [props.toggleButtons.p, toggleButtons.c]);
+    }, [props.toggleButtons.playerToggle, toggleButtons.communityToggle]);
 
     return (
         <>
@@ -30,10 +31,10 @@ export default function BestHand(props) {
                         backgroundColor: 'initial',
                         backgroundImage: 'linear-gradient(#464d55, #25292e)'
                       }}
-                        onClick={handleBestHand} disabled={toggleButtons.b}>
+                        onClick={handleBestHand} disabled={toggleButtons.bestHandToggle}>
                          <span className={styles.cardicons_b}>&spades;</span>
                          <span className={styles.cardicons_r}>&diams;</span>
-                         <span className={styles.btnbot}>-Check the best hand-</span> 
+                         <span className={styles.best_hand_button}>-Check the best hand-</span> 
                          <span className={styles.cardicons_b}>&clubs;</span>
                          <span className={styles.cardicons_r}>&hearts;</span>
                 </Fab>

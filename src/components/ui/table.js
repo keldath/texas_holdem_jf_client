@@ -12,7 +12,11 @@ function Table(props) {
 
     const updateCards = useCardsUpdateContext()
     const cards = useCardsContext()
-    const [toggleButtons, setToggleeButtons] = useState({c: false, p: true, b: true})
+    const [toggleButtons, setToggleeButtons] = useState({
+        communityToggle: false, 
+        playerToggle: true, 
+        bestHandToggle: true
+    })
 
     const state = {
         toggleButtons, 
@@ -22,7 +26,6 @@ function Table(props) {
     // send the cards them selfs to the components
     return (
         <div className={styles.App}>
-
             <Community {...state} cards={cards}/>
             <BackDrop {...cards} />
             <Player {...state} cards={cards}/>

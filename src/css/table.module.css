@@ -6,7 +6,7 @@
     justify-content: center;
 }
 
-.top_container {
+.top {
     height: 50vh;
     flex-flow: column;
     background-color: rgb(6, 59, 9);
@@ -39,19 +39,7 @@
   max-width: 100%;
 }
 
-.deck {
-  transform: rotate(90deg);
-}
-.deck_txt {
-  color: darkblue;
-  transform: rotate(0deg);
-  display: flex;
-}
-.deck_txt,.deck{
-  align-self: center;
-}
-
-.btncomm, .btnplayer  {
+.community_button, .player_button  {
   align-items: center;
   background-color: initial;
   background-image: linear-gradient(#464d55, #25292e);
@@ -83,26 +71,26 @@
   touch-action: manipulation;
 }
 
-.btncomm:hover, .btnplayer:hover, .btnbot:hover {
+.community_button:hover, .player_button:hover, .best_hand_button:hover {
   box-shadow: rgba(0, 1, 0, .2) 0 2px 8px;
   opacity: .85;
 }
 
-.btncomm:active, .btnplayer:active, .btnbot:active {
+.community_button:active, .player_button:active, .best_hand_button:active {
   outline: 0;
 }
 
-.btncomm:focus, .btnplayer:focus, .btnbot:focus {
+.community_button:focus, .player_button:focus, .best_hand_button:focus {
   box-shadow: rgba(0, 0, 0, .5) 0 0 0 3px;
 }
 
-.btnbot {
+.best_hand_button {
   font-family: expo-brand-demi,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
   font-size: 16px;
   font-size: 1.5vw;
 }
 
-.btncomm, .btnplayer {
+.community_button, .player_button {
     min-height: 5vh;
     max-height: 10vh;
     max-width: 60vw;
@@ -113,18 +101,18 @@
 }
 
 @media screen and (max-width: 500px) {
-  .btncomm, .btnplayer {
+  .community_button, .player_button {
     max-height: 10vh;
     max-width: 40vw;
   }
 }
 
-.btnplayer {
+.player_button {
   max-height: 4vh;
   max-width: 40vw;
 }
 
-.btnplayer:disabled, .btncomm:disabled {
+.player_button:disabled, .community_button:disabled {
   color:rgba(0, 0, 0, 0.26);
 }
 
@@ -141,14 +129,5 @@
 .cardicons_r {
   font-size: 46px;
   color: red;
-}
-
-.handPopup {
-  font-size: 16px;
-  color: red;
-}
-
-.hidden {
-  display: none;
 }
 
