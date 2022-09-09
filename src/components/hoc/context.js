@@ -12,10 +12,23 @@ export function useCardsUpdateContext() {
     return useContext(CardsUpdateContext)
 }
 
+// this is to reset state on a new game
+export const static_state = {
+    cardsDealt: [], 
+    hand: [],
+    handCount: 2, 
+    community: [],
+    communityCount: 5,
+    winningHand: []
+}
+
+
 export default function HocContext({ children }) {
 
     // react context as a hoc for a global state and setState
-    const [cards, setCards] = useState({})
+    const [cards, setCards] = useState({
+       ...static_state
+    })
     
     const updateCards = (changes) => {
 
@@ -29,12 +42,12 @@ export default function HocContext({ children }) {
     }
      
     const apiResult = PropTypes.shape({
-        cards_left: PropTypes.number, 
-        deck: PropTypes.array,
-        updated_deck: PropTypes.array,
-        comm_cards: PropTypes.array,
-        player_hand: PropTypes.array,
-        winning_hand: PropTypes.array
+        cardsDealt: PropTypes.array, 
+        hand: PropTypes.array,
+        handCount: PropTypes.number, 
+        community: PropTypes.array,
+        communityCount: PropTypes.number,
+        winningHand: PropTypes.array
     })
     
     return (

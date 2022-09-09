@@ -2,19 +2,34 @@ import React , { useEffect }from 'react'
 import PropTypes from 'prop-types'
 import axios from "axios";
 
-import CardMaker from '../../cards/cardMaker'
+import { useCardsUpdateContext, useCardsContext, static_state } from '../../hoc/context'
+
+import CardParser from '../../cards/cardParser'
 import styles from '../../../css/table.module.css';
+import Card_styles from '../../../css/cards.module.css'
 
 
 export default function Community(props) {
 
     const toggleButtons= props.toggleButtons
     const setToggleeButtons = props.setToggleeButtons
-    const updateCards = props.updateCards
+
+    const updateCards = useCardsUpdateContext()
+    const cards = useCardsContext()
 
     const handleCommunity = async () => {
-        let { data } = await axios('http://localhost:8080/deal_community');
-        updateCards(data)
+        let { data } = await axios('http://localhost:8080/deal_community', {params:{
+            data: {
+              cards_dealt: cards.cardsDealt,
+              cards_to_deal: cards.communityCount
+            },
+        }});
+        //new game - reset all
+        updateCards({...static_state,
+            community: data, 
+            cardsDealt: cards.hand.concat(data),
+        })
+
         setToggleeButtons({...toggleButtons, 
                             communityToggle: !toggleButtons.communityToggle, 
                             playerToggle: !toggleButtons.playerToggle}) 
@@ -22,13 +37,17 @@ export default function Community(props) {
    
     useEffect(() => {
         console.log('rendering community cards')
-    }, [props.toggleButtons.bestHandToggle]);
+    }, [cards.community]);
+
+    const isCommunityExists = cards.community.length > 0
 
     return (
         <>
           <div className={`${styles._container} ${styles.top}`}>
                 <div className={styles.card_container}>
-                    <CardMaker cardCount={5} />
+                    <div className={`${Card_styles.drawContainer} ${Card_styles.flopBox}`}>
+                        {isCommunityExists ? <CardParser cards={cards.community} winningHand={cards.winningHand} /> : null}
+                    </div>
                 </div>
                 <button className={`${styles.community_button}`} disabled={toggleButtons.communityToggle}
                                 onClick={handleCommunity}>Deal Community</button>  
@@ -39,7 +58,6 @@ export default function Community(props) {
 
 Community.propTypes = {
     toggleButtons : PropTypes.object.isRequired,
-    setToggleeButtons: PropTypes.func.isRequired,
-    updateCards: PropTypes.func.isRequired,
+    setToggleeButtons: PropTypes.func.isRequired
 }
 

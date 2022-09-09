@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 
-import { useCardsUpdateContext, useCardsContext } from '../hoc/context'
 import Community from './tableComponents/community'
 import Player from './tableComponents/player'
 import BestHand from './tableComponents/bestHand';
@@ -10,8 +9,6 @@ import styles from '../../css/App.module.css';
 
 function Table(props) {
 
-    const updateCards = useCardsUpdateContext()
-    const cards = useCardsContext()
     const [toggleButtons, setToggleeButtons] = useState({
         communityToggle: false, 
         playerToggle: true, 
@@ -20,15 +17,14 @@ function Table(props) {
 
     const state = {
         toggleButtons, 
-        setToggleeButtons,
-        updateCards
+        setToggleeButtons
     }
-    // send the cards them selfs to the components
+    
     return (
         <div className={styles.App}>
-            <Community {...state} cards={cards}/>
-            <BackDrop {...cards} />
-            <Player {...state} cards={cards}/>
+            <Community {...state}/>
+            <BackDrop />
+            <Player {...state}/>
             <BestHand {...state}/>
         </div>
     )

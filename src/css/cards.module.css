@@ -25,6 +25,26 @@
     justify-content: center;
 }
 
+.best_card_in_hand {
+	margin: 1px;
+	padding: 0;
+	height: 20vh;
+	border-width: medium;
+	border-style: outset;
+	border-color: yellow;
+}
+
+/* this is so the position will be 
+aligned with an added border of a winning card */
+.dummy_border {
+	margin: 1px;
+	padding: 0;
+	height: 20vh;
+	border-width: medium;
+	border-style: outset;
+	border-color: rgba(0, 0, 0, .05);
+}
+		
 
 /*  css for card suits
 card::before{content:attr(data-rank)}

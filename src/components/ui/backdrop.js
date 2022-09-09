@@ -1,12 +1,17 @@
 import React from 'react'
+
+import { useCardsContext } from '../hoc/context'
+
 import styles from '../../css/backdrop.module.css'
 
 export default function BackDrop(props) {
-    console.log('aaa')
+
+    const cards = useCardsContext()
+
     let handSummary = ''
     let winHands = ''
-    if (props?.winning_hand !== undefined ) {
-        winHands = props.winning_hand
+    if (cards.winningHand.length > 0 ) {
+        winHands = cards.winningHand
         if (winHands[0].length > 0) {
             handSummary = `The Best Hand is: ${winHands[1]}`
         }
@@ -18,3 +23,4 @@ export default function BackDrop(props) {
         </>
     )
 }
+
