@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import axios from "axios";
 
 import CardMaker from '../../cards/cardMaker'
-import cont_styles from '../../../css/table.module.css';
+import styles from '../../../css/table.module.css';
 
 
 export default function Player(props) {
@@ -24,11 +24,11 @@ export default function Player(props) {
 
     return (
         <>
-          <div className={`${cont_styles._container} ${cont_styles.mid}`}>
-                <div className={`${cont_styles.card_container} ${cont_styles.pocket}`}>
+          <div className={`${styles._container} ${styles.mid}`}>
+                <div className={`${styles.card_container} ${styles.pocket}`}>
                     <CardMaker cardCount={2}/>
                 </div>
-                <button className={cont_styles.btnplayer} onClick={handlePlayer} disabled={toggleButtons.p}>Deal Pocket</button>
+                <button className={styles.btnplayer} onClick={handlePlayer} disabled={toggleButtons.p}>Deal Pocket</button>
             </div>
         </>
     )

@@ -1,5 +1,5 @@
 
-.borderwin {
+.best_card_in_hand {
 	margin: 1px;
 	padding: 0;
 	height: 20vh;
@@ -10,7 +10,7 @@
 
 /* this is so the position will be 
 aligned with an added border of a winning card */
-.notwinning {
+.dummy_border {
 	margin: 1px;
 	padding: 0;
 	height: 20vh;

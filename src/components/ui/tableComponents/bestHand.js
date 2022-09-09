@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import axios from "axios";
 
 import Fab from '@mui/material/Fab';
-import cont_styles from '../../../css/table.module.css';
+import styles from '../../../css/table.module.css';
 
 export default function BestHand(props) {
 
@@ -23,7 +23,7 @@ export default function BestHand(props) {
 
     return (
         <>
-          <div className={`${cont_styles._container} ${cont_styles.bot}`} >
+          <div className={`${styles._container} ${styles.bot}`} >
                 <Fab variant="extended" 
                       sx={{
                         color: 'white',
@@ -31,11 +31,11 @@ export default function BestHand(props) {
                         backgroundImage: 'linear-gradient(#464d55, #25292e)'
                       }}
                         onClick={handleBestHand} disabled={toggleButtons.b}>
-                         <span className={cont_styles.cardicons_b}>&spades;</span>
-                         <span className={cont_styles.cardicons_r}>&diams;</span>
-                         <span className={cont_styles.btnbot}>-Check the best hand-</span> 
-                         <span className={cont_styles.cardicons_b}>&clubs;</span>
-                         <span className={cont_styles.cardicons_r}>&hearts;</span>
+                         <span className={styles.cardicons_b}>&spades;</span>
+                         <span className={styles.cardicons_r}>&diams;</span>
+                         <span className={styles.btnbot}>-Check the best hand-</span> 
+                         <span className={styles.cardicons_b}>&clubs;</span>
+                         <span className={styles.cardicons_r}>&hearts;</span>
                 </Fab>
              </div>
         </>

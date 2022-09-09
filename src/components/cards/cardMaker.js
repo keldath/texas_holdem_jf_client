@@ -3,8 +3,8 @@ import React from 'react'
 import PropTypes from 'prop-types';
 
 import { useCardsContext } from '../hoc/context'
-import { CardGen } from './cardParser'
-import cards_styles from '../../css/cards.module.css'
+import { CardParser } from './cardParser'
+import styles from '../../css/cards.module.css'
 
 
 export default function CardMaker(props) {
@@ -19,11 +19,9 @@ export default function CardMaker(props) {
     if (isCardValid) {
         if (cards?.comm_cards !== undefined) {
             isCommCards = cards.comm_cards.length === props.cardCount
-            // console.log(cards.comm_cards.length)
         }
         if (cards?.player_hand) {
             isPlayerCards = cards.player_hand.length === props.cardCount
-            // console.log(cards.player_hand.length)
         }
     }
   
@@ -43,12 +41,12 @@ export default function CardMaker(props) {
             return null
         }
 
-        return CardGen(whichCardsToDraw, cards.winning_hand)
+        return CardParser(whichCardsToDraw, cards.winning_hand)
 
     }
 
     return (
-        <div className={`${cards_styles.drawContainer} ${cards_styles.flopBox}`}>
+        <div className={`${styles.drawContainer} ${styles.flopBox}`}>
             {drawCommCards()}
        </div>
     )

@@ -1,18 +1,22 @@
 import React from 'react'
+import styles from '../../css/backdrop.module.css'
 
-import { useCardsContext } from '../hoc/context'
+export default function BackDrop(props) {
 
-import '../pages/backdrop.module.css'
-
-function BackDrop(props) {
-
-    const cards = useCardsContext()
+    console.log(props)
+    let backdtop = null
+    let winHands = ''
+    if (props?.winning_hand !== undefined ) {
+        winHands = props.winning_hand
+        console.log(winHands)
+        if (winHands[0].length > 0) {
+            backdtop = <span className={styles.backdrop}>The Best Hand is: {winHands[1]}</span>
+        }
+    }
 
     return (
-        <div className=''>
-            
-        </div>
+        <>
+            {backdtop}
+        </>
     )
 }
-
-export default BackDrop

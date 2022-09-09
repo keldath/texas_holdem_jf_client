@@ -3,11 +3,11 @@ import PropTypes from 'prop-types'
 import axios from "axios";
 
 import CardMaker from '../../cards/cardMaker'
-import cont_styles from '../../../css/table.module.css';
+import styles from '../../../css/table.module.css';
 
 
 export default function Community(props) {
-    console.log(props)
+
     const toggleButtons= props.toggleButtons
     const setToggleeButtons = props.setToggleeButtons
     const updateCards = props.updateCards
@@ -24,11 +24,12 @@ export default function Community(props) {
 
     return (
         <>
-          <div className={`${cont_styles._container} ${cont_styles.top}`}>
-                <div className={cont_styles.card_container}>
+          <div className={`${styles._container} ${styles.top_container}`}>
+                <div className={styles.card_container}>
                     <CardMaker cardCount={5} />
                 </div>
-                <button className={`${cont_styles.btncomm} ${cont_styles.deck_txt}`} disabled={toggleButtons.c}
+                {/* change names! */}
+                <button className={`${styles.btncomm} ${styles.deck_txt}`} disabled={toggleButtons.c}
                                 onClick={handleCommunity}>Deal Community</button>  
              </div>  
         </>

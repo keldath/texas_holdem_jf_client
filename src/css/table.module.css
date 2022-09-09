@@ -6,11 +6,7 @@
     justify-content: center;
 }
 
-._containerOverflow {
-  overflow-y: auto;
-}
-
-.top {
+.top_container {
     height: 50vh;
     flex-flow: column;
     background-color: rgb(6, 59, 9);

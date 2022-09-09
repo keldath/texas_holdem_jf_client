@@ -1,4 +1,8 @@
 .backdrop {
     background-color: black;
-    opacity: 0.3;
+    opacity: 0.5;
+    color: rgb(236, 236, 154);
+    position: absolute;
+    text-align: center;
+    width: 100%;
 }

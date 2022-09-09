@@ -1,18 +1,4 @@
 
-.card {
-    align-items: center;
-    justify-content: center;
-    display: flex;
-}
-
-.card::after{content:"\2665";color:red;}
-
-.front {
-    background-color: #fff;
-    color:black;
-    font-size: 14px;
-}
-
 .drawContainer {
     /* margin: 3%; */
     display: flex;
@@ -26,8 +12,7 @@
 }
 
 .flopBox {
-    min-width: 96%;
-    width: 50vw;
+    min-width: 70vw;
     height: 22vh;
     justify-content: center;
 }
@@ -41,7 +26,7 @@
 }
 
 
-/* 
+/*  css for card suits
 card::before{content:attr(data-rank)}
 .spades::after{content:"\2660"}
 .hearts::after{content:"\2665";color:red}
