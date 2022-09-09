@@ -2,12 +2,12 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import axios from "axios";
 
-import CardMaker from '../cards/cardMaker'
-import cont_styles from '../../css/table.module.css';
+import CardMaker from '../../cards/cardMaker'
+import cont_styles from '../../../css/table.module.css';
 
 
 export default function Community(props) {
-
+    console.log(props)
     const toggleButtons= props.toggleButtons
     const setToggleeButtons = props.setToggleeButtons
     const updateCards = props.updateCards
