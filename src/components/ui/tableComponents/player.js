@@ -1,4 +1,4 @@
-import React from 'react'
+import React , { useEffect } from 'react'
 import PropTypes from 'prop-types'
 import axios from "axios";
 
@@ -17,6 +17,10 @@ export default function Player(props) {
         updateCards(data) 
         setToggleeButtons({...toggleButtons, p: !toggleButtons.p, b: !toggleButtons.b}) 
     }
+
+    useEffect(() => {
+        console.log('rendering Player\'s Hand')
+    }, [props.toggleButtons.c, props.toggleButtons.c]);
 
     return (
         <>

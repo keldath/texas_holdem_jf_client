@@ -1,4 +1,4 @@
-import React from 'react'
+import React , { useEffect }from 'react'
 import PropTypes from 'prop-types'
 import axios from "axios";
 
@@ -16,6 +16,10 @@ export default function BestHand(props) {
         updateCards(data)
         setToggleeButtons({...toggleButtons, c: !toggleButtons.c, b: !toggleButtons.b})
     }
+
+    useEffect(() => {
+      console.log('rendering best Hand')
+    }, [props.toggleButtons.p, toggleButtons.c]);
 
     return (
         <>

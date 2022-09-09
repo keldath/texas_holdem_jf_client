@@ -1,4 +1,4 @@
-import React from 'react'
+import React , { useEffect }from 'react'
 import PropTypes from 'prop-types'
 import axios from "axios";
 
@@ -13,11 +13,14 @@ export default function Community(props) {
     const updateCards = props.updateCards
 
     const handleCommunity = async () => {
-        await axios('http://localhost:8080/create_deck'); // no need to save the response of this one
         let { data } = await axios('http://localhost:8080/deal_community');
         updateCards(data)
         setToggleeButtons({...toggleButtons, c: !toggleButtons.c, p: !toggleButtons.p}) 
     }
+
+    useEffect(() => {
+        console.log('rendering community cards')
+    }, [props.toggleButtons.b]);
 
     return (
         <>

@@ -13,9 +13,9 @@ function Table(props) {
     const [toggleButtons, setToggleeButtons] = useState({c: false, p: true, b: true})
 
     let state = {
-        toggleButtons: toggleButtons ,
+        'toggleButtons': toggleButtons ,
         'setToggleeButtons': setToggleeButtons ,
-        updateCards: updateCards
+        'updateCards': updateCards
     }
 
     return (
