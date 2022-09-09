@@ -128,9 +128,13 @@
   max-width: 40vw;
 }
 
+.btnplayer:disabled, .btncomm:disabled {
+  color:rgba(0, 0, 0, 0.26);
+}
+
 .pocket {
     width: auto;
-    height: 45%
+    height: 45%;
 }
 
 .cardicons_b {
@@ -141,5 +145,14 @@
 .cardicons_r {
   font-size: 46px;
   color: red;
+}
+
+.handPopup {
+  font-size: 16px;
+  color: red;
+}
+
+.hidden {
+  display: none;
 }
 

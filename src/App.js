@@ -1,5 +1,5 @@
-import Table from './components/pages/table'
-import styles from './App.module.css';
+import Table from './components/ui/table'
+import styles from './css/App.module.css';
 
 function App() {
   return (
