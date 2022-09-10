@@ -79,3 +79,7 @@
   .player_button:disabled, .community_button:disabled {
     color:rgba(0, 0, 0, 0.26);
   }
+
+  :disabled {
+    cursor: auto;
+  }
