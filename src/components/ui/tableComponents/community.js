@@ -6,7 +6,6 @@ import { useCardsUpdateContext, useCardsContext, static_state } from '../../hoc/
 
 import CardParser from '../../cards/cardParser'
 import layout from '../../../css/layout.module.css';
-import card from '../../../css/cards.module.css'
 import buttons from '../../../css/buttons.module.css';
 
 
@@ -37,7 +36,7 @@ export default function Community(props) {
     }
    
     useEffect(() => {
-        console.log('rendering community cards')
+        return console.log('rendering community cards')
     }, [cards.community]);
 
     const isCommunityExists = cards.community.length > 0

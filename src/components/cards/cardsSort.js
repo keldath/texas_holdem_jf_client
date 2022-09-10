@@ -1,7 +1,5 @@
 
-
-
-export function SortCards(cards) {
+export function sortCards(cards) {
 
     // this is a sorting function to present the hands sorted by suit and val
     // should have placed it in the python ....

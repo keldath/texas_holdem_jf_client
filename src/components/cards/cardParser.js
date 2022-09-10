@@ -1,14 +1,15 @@
 import React from 'react'
 import PropTypes from 'prop-types';
 
-import { SortCards } from './cardsSort'
+import { sortCards } from './cardsSort'
 import Card from 'react-free-playing-cards/lib/TcN'
 import styles from '../../css/cards.module.css'
 
 
 export default function CardParser(props) {
     
-    let cards = SortCards(props.cards)
+    let cards = sortCards(props.cards)
+
     return cards.map((item, idx)=> {
         let cardClassing = styles.dummy_border
         // will check if a card is a part of a winning hand and mark it with css

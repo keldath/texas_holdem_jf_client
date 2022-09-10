@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import Community from './tableComponents/community'
 import Player from './tableComponents/player'
 import BestHand from './tableComponents/bestHand';
-import BackDrop from './backdrop'
+import Banner from './banner'
 
 import styles from '../../css/App.module.css';
 
@@ -15,6 +15,7 @@ function Table(props) {
         bestHandToggle: true
     })
 
+    //no need to keep it on the context state
     const state = {
         toggleButtons, 
         setToggleeButtons
@@ -23,7 +24,7 @@ function Table(props) {
     return (
         <div className={styles.App}>
             <Community {...state}/>
-            <BackDrop />
+            <Banner />
             <Player {...state}/>
             <BestHand {...state}/>
         </div>

@@ -1,6 +1,4 @@
 
-
-
 .best_card_in_hand {
 	margin: 1px;
 	padding: 0;
@@ -29,6 +27,25 @@ aligned with an added border of a winning card */
 .cardicons_r {
 	font-size: 46px;
 	color: red;
+}
+
+.cardicons_b_banner {
+	color: #000000;
+}
+  
+.cardicons_r_banner {
+	color: red;
+}
+.cardicons_r_banner, .cardicons_b_banner {
+    background: rgb(255, 255, 255);
+	border-radius: 12px;
+	border-width: medium;
+	border-style: outset;
+	border-color: yellow;
+	font-weight: bold;
+	vertical-align: middle;
+	text-transform: uppercase;
+	font-size: 2.9vh;
 }
 
 /*  css for card suits

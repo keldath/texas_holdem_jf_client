@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import axios from "axios";
 
 import { useCardsUpdateContext, useCardsContext } from '../../hoc/context'
+import { sortCards } from '../../cards/cardsSort'
 
 import Fab from '@mui/material/Fab';
 import card from '../../../css/cards.module.css';
@@ -23,14 +24,14 @@ export default function BestHand(props) {
             hand: cards.hand,
             community: cards.community
           },
-        }});
-        updateCards({...cards, winningHand: data}) 
+        }}); 
+        updateCards({...cards, winningHand: [sortCards(data[0])].concat(data[1])}) 
         setToggleeButtons({...toggleButtons, communityToggle: !toggleButtons.communityToggle, 
           bestHandToggle: !toggleButtons.bestHandToggle})
     }
     
     useEffect(() => {
-      console.log('rendering best Hand')
+      return console.log('rendering best Hand')
     }, [cards.winningHand]);
 
     return (
