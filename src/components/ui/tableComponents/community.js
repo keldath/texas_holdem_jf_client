@@ -5,8 +5,9 @@ import axios from "axios";
 import { useCardsUpdateContext, useCardsContext, static_state } from '../../hoc/context'
 
 import CardParser from '../../cards/cardParser'
-import styles from '../../../css/table.module.css';
-import Card_styles from '../../../css/cards.module.css'
+import layout from '../../../css/layout.module.css';
+import card from '../../../css/cards.module.css'
+import buttons from '../../../css/buttons.module.css';
 
 
 export default function Community(props) {
@@ -43,13 +44,11 @@ export default function Community(props) {
 
     return (
         <>
-          <div className={`${styles._container} ${styles.top}`}>
-                <div className={styles.card_container}>
-                    <div className={`${Card_styles.drawContainer} ${Card_styles.flopBox}`}>
-                        {isCommunityExists ? <CardParser cards={cards.community} winningHand={cards.winningHand} /> : null}
-                    </div>
+          <div className={`${layout._container} ${layout.top}`}>
+                <div className={`${layout.drawContainer}`}>
+                    {isCommunityExists ? <CardParser cards={cards.community} winningHand={cards.winningHand} /> : null}
                 </div>
-                <button className={`${styles.community_button}`} disabled={toggleButtons.communityToggle}
+                <button className={`${buttons.community_button}`} disabled={toggleButtons.communityToggle}
                                 onClick={handleCommunity}>Deal Community</button>  
              </div>  
         </>

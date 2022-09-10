@@ -1,0 +1,61 @@
+
+._container   {
+    display: flex;
+    align-items: center;
+    flex-flow: row;
+    justify-content: center;
+}
+
+.top {
+    height: 46vh;
+    flex-flow: column;
+    background-color: rgb(6, 59, 9);
+}
+.mid {
+    height: 35vh;
+    flex-flow: column;
+}
+
+.bot {
+    height: 10vh;
+    margin-top: 5px;
+}
+
+.mid_bar {
+  background-color: black;
+  opacity: 0.5;
+  display: flex;
+  justify-content: center;
+  color: rgb(236, 236, 154);
+  height: 5vh;
+  text-align: center;
+}
+
+.drawContainer , .pocket_container {
+  display: flex;
+  border-radius: 5px;
+  border-color: rgb(7, 7, 7);
+  border-width: medium;
+  border-style: groove;
+  overflow-x: auto;
+  padding: 8px;
+  /* overflow-y: hidden; */
+  margin: auto;
+  height: 22vh;
+  align-items: center;
+}
+
+.drawContainer {
+  min-width: 50vw;
+  height: 22vh;
+  justify-content: center;
+}
+
+.pocket_container {
+   /* margin-top: 4%;  */
+   min-width: 30vw;
+   justify-content: center;
+}
+
+
+

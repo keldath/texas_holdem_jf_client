@@ -5,7 +5,9 @@ import axios from "axios";
 import { useCardsUpdateContext, useCardsContext } from '../../hoc/context'
 
 import Fab from '@mui/material/Fab';
-import styles from '../../../css/table.module.css';
+import card from '../../../css/cards.module.css';
+import buttons from '../../../css/buttons.module.css';
+import layout from '../../../css/layout.module.css';
 
 export default function BestHand(props) {
 
@@ -33,7 +35,7 @@ export default function BestHand(props) {
 
     return (
         <>
-          <div className={`${styles._container} ${styles.bot}`} >
+          <div className={`${layout._container} ${layout.bot}`} >
                 <Fab variant="extended" 
                         sx={{
                           color: 'white',
@@ -41,11 +43,11 @@ export default function BestHand(props) {
                           backgroundImage: 'linear-gradient(#464d55, #25292e)'
                         }}
                         onClick={handleBestHand} disabled={toggleButtons.bestHandToggle}>
-                         <span className={styles.cardicons_b}>&spades;</span>
-                         <span className={styles.cardicons_r}>&diams;</span>
-                         <span className={styles.best_hand_button}>-Check the best hand-</span> 
-                         <span className={styles.cardicons_b}>&clubs;</span>
-                         <span className={styles.cardicons_r}>&hearts;</span>
+                         <span className={card.cardicons_b}>&spades;</span>
+                         <span className={card.cardicons_r}>&diams;</span>
+                         <span className={buttons.best_hand_button}>-Check the best hand-</span> 
+                         <span className={card.cardicons_b}>&clubs;</span>
+                         <span className={card.cardicons_r}>&hearts;</span>
                 </Fab>
              </div>
         </>

@@ -5,8 +5,8 @@ import axios from "axios";
 import { useCardsUpdateContext, useCardsContext } from '../../hoc/context'
 
 import CardParser from '../../cards/cardParser'
-import styles from '../../../css/table.module.css';
-import Card_styles from '../../../css/cards.module.css'
+import layout from '../../../css/layout.module.css';
+import buttons from '../../../css/buttons.module.css';
 
 
 export default function Player(props) {
@@ -41,13 +41,11 @@ export default function Player(props) {
 
     return (
         <>
-          <div className={`${styles._container} ${styles.mid}`}>
-                <div className={`${styles.card_container} ${styles.pocket}`}>
-                    <div className={`${Card_styles.drawContainer} ${Card_styles.flopBox}`}>
-                        {isHandExists ? <CardParser cards={cards.hand} winningHand={cards.winningHand} /> : null}
-                    </div>
+          <div className={`${layout._container} ${layout.mid}`}>
+                <div className={`${layout.pocket_container}`}>
+                    {isHandExists ? <CardParser cards={cards.hand} winningHand={cards.winningHand} /> : null}
                 </div>
-                <button className={styles.player_button} onClick={handlePlayer} disabled={toggleButtons.playerToggle}>Deal Pocket</button>
+                <button className={buttons.player_button} onClick={handlePlayer} disabled={toggleButtons.playerToggle}>Deal Pocket</button>
             </div>
         </>
     )

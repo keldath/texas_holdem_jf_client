@@ -2,7 +2,7 @@ import React from 'react'
 
 import { useCardsContext } from '../hoc/context'
 
-import styles from '../../css/backdrop.module.css'
+import styles from '../../css/layout.module.css'
 
 export default function BackDrop(props) {
 
@@ -19,7 +19,7 @@ export default function BackDrop(props) {
 
     return (
         <>
-            <span className={styles.backdrop}>{handSummary}</span>
+            <span className={styles.mid_bar}>{handSummary}</span>
         </>
     )
 }
