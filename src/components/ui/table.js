@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import Community from './tableComponents/community'
 import Player from './tableComponents/player'
 import BestHand from './tableComponents/bestHand';
+// import Deal from './tableComponents/deal';
 import Banner from './banner'
 
 import styles from '../../css/App.module.css';
@@ -24,8 +25,10 @@ function Table(props) {
     return (
         <div className={styles.App}>
             <Community {...state}/>
+            {/* <Deal {...state} dealType={true}/> */}
             <Banner />
             <Player {...state}/>
+            {/* <Deal {...state} dealType={false}/> */}
             <BestHand {...state}/>
         </div>
     )

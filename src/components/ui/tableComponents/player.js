@@ -33,7 +33,7 @@ export default function Player(props) {
     }
 
     useEffect(() => {
-        console.log('rendering Player\'s Hand')
+        return console.log('rendering Player\'s Hand')
     }, [cards.hand]);
 
     
